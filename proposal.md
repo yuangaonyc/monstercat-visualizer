@@ -2,7 +2,7 @@
 
 ### Background
 
-Monstercat is an independent electronic dance music record label with it's aesthetic music visualizer as one of its unique identifiers. A sample can be found at [here](https://www.youtube.com/watch?v=p13lhwtSaQc)
+Monstercat is an independent electronic dance music record label with it's aesthetic music visualizer as one of its unique identifiers. A sample can be found at [here](https://www.youtube.com/watch?v=p13lhwtSaQc).
 This project is to recreate the visualizer effects of Monstercat using Javascript and relevant libraries.
 
  **Functionality & MVP** and **Bonus Features** sections.  
