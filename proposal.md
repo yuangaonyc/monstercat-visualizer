@@ -37,7 +37,9 @@ This project will be implemented with the following technologies:
 ### Implementation Timeline
 
 **Day 1**: Learn about audio analyzer and be able to connect to audio source.
+
 **Day 2**: Generate sound waves and maybe background particles.
+
 **Day 3**: Finalize styling and animate transitions.
 
 ### Bonus features
