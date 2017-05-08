@@ -5,7 +5,9 @@ class Star {
     this.x = random(0, canvasWidth);
     this.y = random(0, canvasHeight);
     this.r = random(0, maxRadius);
-    this.b = random(0.3, 1);
+    this.b = random(0, 1);
+    this.xVelocity = random(0, 1);
+    this.yVelocity = random(-0.3, 0.3);
     this.context = context;
   }
 
@@ -16,15 +18,22 @@ class Star {
     this.context.fill();
   }
 
-  move(canvasWidth, velocity) {
-    this.x += velocity;
+  move(canvasWidth, canvasHeight) {
+    this.x += window.starVelocity * this.xVelocity * this.r;
+    this.y += window.starVelocity * this.yVelocity * this.r;
     if (this.x > canvasWidth) {
       this.x = 0;
+    } else if (this.x < 0) {
+      this.x = canvasWidth;
+    } else if (this.y > canvasHeight) {
+      this.y = 0;
+    } else if (this.y < 0) {
+      this.y = canvasHeight;
     }
   }
 }
 
-const init = (stars, canvasWidth, canvasHeight, maxRadius, velocity, starCount, context, fps) => {
+const init = (stars, canvasWidth, canvasHeight, maxRadius, starCount, context, fps) => {
   for (var i = 0; i < starCount; i++) {
     const star = new Star(context, canvasWidth, canvasHeight, maxRadius);
     stars.push(star);
@@ -33,7 +42,7 @@ const init = (stars, canvasWidth, canvasHeight, maxRadius, velocity, starCount, 
   setInterval(() => {
     context.clearRect(0, 0, canvasWidth, canvasHeight);
     stars.forEach(star => {
-      star.move(canvasWidth, velocity);
+      star.move(canvasWidth, canvasHeight);
       star.draw();
     });
   }, 1000/ fps);

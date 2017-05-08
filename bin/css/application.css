@@ -3,6 +3,20 @@ body {
   padding: 0;
 }
 
+@font-face {
+font-family: 'Gotham Pro Bold';
+font-style: normal;
+font-weight: normal;
+src: url('/bin/assets/fonts/GothaProBol.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Gotham Pro';
+font-style: normal;
+font-weight: normal;
+src: url('/bin/assets/fonts/GothamPro.woff') format('woff');
+}
+
 #mp3_player {
   width: 100%;
   display: flex;
@@ -17,4 +31,56 @@ canvas {
 
 #stars {
   z-index: 1;
+}
+
+#analyser {
+  z-index: 2;
+}
+
+#album_art {
+  position: absolute;
+  background-color: rgba(144,24,48,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  top: 480px;
+  left: 110px;
+  width: 144px;
+  height: 144px;
+  z-index: 2;
+}
+
+#album_art img {
+  width: 100px;
+  height: 100px;
+}
+
+#info {
+  position: absolute;
+  top: 480px;
+  left: 280px;
+  z-index: 2;
+  color: white;
+  height: 144px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#info p:first-child {
+  font-family: 'Gotham Pro Bold';
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 60px;
+  color: white;
+}
+
+#info p:last-child {
+  font-family: 'Gotham Pro';
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 40px;
+  color: white;
 }

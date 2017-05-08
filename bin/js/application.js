@@ -1,6 +1,6 @@
 import cloudInit from './_clouds';
 import starInit from './_stars';
-import {init} from './_analyser';
+import analyserInit from './_analyser';
 
 // clouds configuration
 const cloudCount = 20;
@@ -16,8 +16,8 @@ const clouds = [];
 // stars configuration
 const starCount = 300;
 const maxRadius = 2;
-const velocity = 3;
 const stars = [];
+window.starVelocity = 0;
 
 const cloudCanvas = document.querySelector('#clouds');
   cloudCanvas.width = canvasWidth;
@@ -29,10 +29,10 @@ const starCanvas = document.querySelector('#stars');
   starCanvas.width = canvasWidth;
   starCanvas.height = canvasHeight;
 const starContext = starCanvas.getContext('2d');
-starInit(stars, canvasWidth, canvasHeight, maxRadius, velocity, starCount, starContext, fps);
+starInit(stars, canvasWidth, canvasHeight, maxRadius, starCount, starContext, fps);
 
 const analyserCanvas = document.querySelector('#analyser');
   analyserCanvas.width = canvasWidth;
   analyserCanvas.height = canvasHeight;
 const analyserContext = analyserCanvas.getContext('2d');
-init(analyserContext, canvasWidth, canvasHeight, fps);
+analyserInit(analyserContext, canvasWidth, canvasHeight, fps);
