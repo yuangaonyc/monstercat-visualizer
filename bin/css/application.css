@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #mp3_player {
   width: 100%;
   display: flex;
@@ -7,13 +12,9 @@
 }
 
 canvas {
-  width: 100%;
-}
-
-#clouds {
-  background-color: black;
+  position: absolute;
 }
 
 #stars {
-  background-color: black;
+  z-index: 1;
 }
