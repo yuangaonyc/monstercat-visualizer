@@ -7,7 +7,7 @@ class Star {
     this.r = random(0, maxRadius);
     this.b = random(0, 1);
     this.xVelocity = random(0, 1);
-    this.yVelocity = random(-0.3, 0.3);
+    this.yVelocity = random(-0.2, 0.2);
     this.context = context;
   }
 

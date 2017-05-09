@@ -4,19 +4,24 @@
     <meta charset="utf-8">
     <title>Music Visualiser Demo</title>
     <link rel="stylesheet" href="css/application.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
   </head>
   <body>
+    <img src="/bin/assets/images/arrow_left.png" id="arrow_left" class="arrow">
+    <img src="/bin/assets/images/arrow_right.png" id="arrow_right" class="arrow">
     <canvas id="stars"></canvas>
     <canvas id="clouds"></canvas>
     <div id="mp3_player">
       <canvas id="analyser"></canvas>
-      <div class="">
+      <div>
         <div id="album_art">
-          <img src="/bin/assets/images/monstercat.png">
+          <div class="front">
+          </div>
+          <div class="back">
+          </div>
         </div>
         <div id="info">
-          <p>marshmello</p>
-          <p>alone</p>
         </div>
       </div>
     </div>
