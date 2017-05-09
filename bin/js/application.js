@@ -5,6 +5,7 @@ import { removeNode } from './_util';
 
 // play list
 window.trackID = 2;
+window.skippingEnabled = true;
 window.sounds = [
   './assets/sounds/Marshmello-Alone.mp3',
   './assets/sounds/Hellberg-TheGirl.mp3',
@@ -54,30 +55,6 @@ const maxRadius = 2;
 const stars = [];
 window.starVelocity = 0;
 
-// skipping tracks
-const resetAnalyser = () => {
-  removeNode(document.querySelector('audio'));
-  removeNode(document.querySelector('.back'));
-  removeNode(document.querySelector('.front'));
-  removeNode(document.querySelector('#info p'));
-  removeNode(document.querySelector('#info p'));
-  clearInterval(analyserAnimation);
-  clearInterval(albumArtAnimation);
-  audioContext.close();
-  analyserContext.clearRect(0, 0, canvasWidth, canvasHeight);
-  analyserInit(analyserContext, canvasWidth, canvasHeight, fps);
-};
-document.querySelector('#arrow_right').onclick = () => {
-  window.starVelocity = 10;
-  window.trackID = trackID === 3 ? 0 : trackID + 1;
-  resetAnalyser();
-};
-document.querySelector('#arrow_left').onclick = () => {
-  window.starVelocity = -10;
-  window.trackID = trackID === 0 ? 3 : trackID - 1;
-  resetAnalyser();
-};
-
 // initiate canvases
 const cloudCanvas = document.querySelector('#clouds');
   cloudCanvas.width = canvasWidth;
@@ -96,3 +73,33 @@ const analyserCanvas = document.querySelector('#analyser');
   analyserCanvas.height = canvasHeight;
 const analyserContext = analyserCanvas.getContext('2d');
 analyserInit(analyserContext, canvasWidth, canvasHeight, fps);
+
+// skipping tracks
+window.resetAnalyser = () => {
+  removeNode(document.querySelector('audio'));
+  removeNode(document.querySelector('.back'));
+  removeNode(document.querySelector('.front'));
+  removeNode(document.querySelector('#info p'));
+  removeNode(document.querySelector('#info p'));
+  clearInterval(analyserAnimation);
+  clearInterval(albumArtAnimation);
+  audioContext.close();
+  analyserContext.clearRect(0, 0, canvasWidth, canvasHeight);
+  analyserInit(analyserContext, canvasWidth, canvasHeight, fps);
+};
+document.querySelector('#arrow_right').onclick = () => {
+  if (skippingEnabled) {
+    window.skippingEnabled = false;
+    window.starVelocity = 10;
+    window.trackID = trackID === 3 ? 0 : trackID + 1;
+    resetAnalyser();
+  }
+};
+document.querySelector('#arrow_left').onclick = () => {
+  if (skippingEnabled) {
+    window.skippingEnabled = false;
+    window.starVelocity = -10;
+    window.trackID = trackID === 0 ? 3 : trackID - 1;
+    resetAnalyser();
+  }
+};

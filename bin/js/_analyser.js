@@ -3,8 +3,13 @@ const init = (context, canvasWidth, canvasHeight, fps) => {
   const audio = new Audio();
   audio.src = window.sounds[window.trackID];
   audio.controls = false;
-  audio.loop = true;
+  audio.loop = false;
   audio.autoplay = true;
+  audio.onended = () => {
+    window.starVelocity = 10;
+    window.trackID = trackID === 3 ? 0 : trackID + 1;
+    window.resetAnalyser();
+  };
 
   // set up analyser
   document.querySelector('#mp3_player').appendChild(audio);
@@ -123,6 +128,7 @@ const init = (context, canvasWidth, canvasHeight, fps) => {
             context.fillRect(bar_x + 75, canvasHeight, bar_width, bar_height);
           }
         }, 1000 / fps);
+        window.skippingEnabled = true;
       }, 500);
     }
   });
