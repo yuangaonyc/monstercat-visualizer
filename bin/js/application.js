@@ -1,46 +1,41 @@
 import cloudInit from './_clouds';
 import starInit from './_stars';
 import analyserInit from './_analyser';
+import { removeNode } from './_util';
 
 // play list
-const sounds = [
+window.trackID = 2;
+window.sounds = [
   './assets/sounds/Marshmello-Alone.mp3',
   './assets/sounds/Hellberg-TheGirl.mp3',
   './assets/sounds/Volant-Minty.mp3',
   './assets/sounds/Tristam&Braken-Flight.mp3'
 ];
-const themes = [
+window.themes = [
   'rgba(144,24,48,1)',
   'rgba(7, 132, 221, 1)',
   'rgba(10, 151, 84, 1)',
   'rgba(241, 34, 133, 1)'
 ];
-const albumArts = [
+window.albumArts = [
   '/bin/assets/images/marshmello.jpg',
   '/bin/assets/images/hellberg.jpg',
   '/bin/assets/images/volant.jpg',
   '/bin/assets/images/tristam.png',
 
 ];
-const artists = [
+window.artists = [
   'marshmello',
   'hellberg',
   'volant',
   'tristam & braken'
 ];
-const songs = [
+window.songs = [
   'alone',
   'the girl',
   'minty',
   'flight'
 ];
-
-let trackID = 2;
-window.sound = sounds[trackID];
-window.theme = themes[trackID];
-window.albumArt = albumArts[trackID];
-window.artist = artists[trackID];
-window.song = songs[trackID];
 
 // clouds configuration
 const cloudCount = 20;
@@ -58,6 +53,30 @@ const starCount = 400;
 const maxRadius = 2;
 const stars = [];
 window.starVelocity = 0;
+
+// skipping tracks
+const resetAnalyser = () => {
+  removeNode(document.querySelector('audio'));
+  removeNode(document.querySelector('.back'));
+  removeNode(document.querySelector('.front'));
+  removeNode(document.querySelector('#info p'));
+  removeNode(document.querySelector('#info p'));
+  clearInterval(analyserAnimation);
+  clearInterval(albumArtAnimation);
+  audioContext.close();
+  analyserContext.clearRect(0, 0, canvasWidth, canvasHeight);
+  analyserInit(analyserContext, canvasWidth, canvasHeight, fps);
+};
+document.querySelector('#arrow_right').onclick = () => {
+  window.starVelocity = 10;
+  window.trackID = trackID === 3 ? 0 : trackID + 1;
+  resetAnalyser();
+};
+document.querySelector('#arrow_left').onclick = () => {
+  window.starVelocity = -10;
+  window.trackID = trackID === 0 ? 3 : trackID - 1;
+  resetAnalyser();
+};
 
 // initiate canvases
 const cloudCanvas = document.querySelector('#clouds');
