@@ -61,13 +61,17 @@ const init = (context, canvasWidth, canvasHeight, fps) => {
   };
 
   // info init animation
+  const info = document.createElement('div');
+    info.id = 'info';
+    document.querySelector('#mp3_player > div').appendChild(info);
   const artist = document.createElement('p');
-  artist.innerHTML = window.artists[window.trackID];
+    artist.innerHTML = window.artists[window.trackID];
   const song = document.createElement('p');
-  song.innerHTML = window.songs[window.trackID];
-  document.querySelector('#info').appendChild(artist);
-  document.querySelector('#info').appendChild(song);
+    song.innerHTML = window.songs[window.trackID];
+    document.querySelector('#info').appendChild(artist);
+    document.querySelector('#info').appendChild(song);
   setTimeout(() => {
+    document.querySelector('#info').style.maxWidth = '0%';
     document.querySelector('#info').style.maxWidth = '100%';
   }, 100);
 

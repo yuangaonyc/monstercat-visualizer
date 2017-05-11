@@ -81,6 +81,7 @@ window.resetAnalyser = () => {
   removeNode(document.querySelector('.front'));
   removeNode(document.querySelector('#info p'));
   removeNode(document.querySelector('#info p'));
+  removeNode(document.querySelector('#info'));
   clearInterval(analyserAnimation);
   clearInterval(albumArtAnimation);
   audioContext.close();
