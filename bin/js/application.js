@@ -10,32 +10,36 @@ window.sounds = [
   './assets/sounds/Marshmello-Alone.mp3',
   './assets/sounds/Hellberg-TheGirl.mp3',
   './assets/sounds/Volant-Minty.mp3',
-  './assets/sounds/Tristam&Braken-Flight.mp3'
+  './assets/sounds/Nanobii-RainbowRoad.mp3',
+  './assets/sounds/PegboardNerds-Disconnected.mp3',
 ];
 window.themes = [
   'rgba(144,24,48,1)',
   'rgba(7, 132, 221, 1)',
   'rgba(10, 151, 84, 1)',
-  'rgba(241, 34, 133, 1)'
+  'rgba(241, 34, 133, 1)',
+  'rgba(229, 206, 6, 1)',
 ];
 window.albumArts = [
   '/bin/assets/images/marshmello.jpg',
   '/bin/assets/images/hellberg.jpg',
   '/bin/assets/images/volant.jpg',
-  '/bin/assets/images/tristam.png',
-
+  '/bin/assets/images/nanobii.png',
+  '/bin/assets/images/pegboard-nerds.jpg',
 ];
 window.artists = [
   'marshmello',
   'hellberg',
   'volant',
-  'tristam & braken'
+  'nanobii',
+  'pegboard nerds',
 ];
 window.songs = [
   'alone',
   'the girl',
   'minty',
-  'flight'
+  'rainbow road',
+  'disconnected',
 ];
 
 // clouds configuration
@@ -92,7 +96,7 @@ document.querySelector('#arrow_right').onclick = () => {
   if (skippingEnabled) {
     window.skippingEnabled = false;
     window.starVelocity = 10;
-    window.trackID = trackID === 3 ? 0 : trackID + 1;
+    window.trackID = trackID === 4 ? 0 : trackID + 1;
     resetAnalyser();
   }
 };
@@ -100,7 +104,7 @@ document.querySelector('#arrow_left').onclick = () => {
   if (skippingEnabled) {
     window.skippingEnabled = false;
     window.starVelocity = -10;
-    window.trackID = trackID === 0 ? 3 : trackID - 1;
+    window.trackID = trackID === 0 ? 4 : trackID - 1;
     resetAnalyser();
   }
 };
