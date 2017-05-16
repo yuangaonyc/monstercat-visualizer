@@ -54,7 +54,7 @@
 }
 ```
 
-### Moving Stars Animation
+#### Moving Stars Animation
 
 ``` Javascript
 move(canvasWidth, canvasHeight) {
