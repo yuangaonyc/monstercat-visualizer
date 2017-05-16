@@ -2,9 +2,10 @@
 
 ### Background
 
-**[Monstercat Visualizer][monstercat-visualizer]** is a web based JavaScript implementation of the iconic music visualizer used by the popular independent electronic dance music record label, Monstercat.
+**[Monstercat Visualizer][monstercat-visualizer]** is a web based JavaScript implementation of the iconic music visualizer used by the popular independent electronic dance music record label, [Monstercat][monstercat].
 
 [monstercat-visualizer]:monstercat-visual.me/
+[monstercat]: https://www.youtube.com/user/MonstercatMedia
 ![screenshot](/bin/assets/images/screenshot2.png)
 
 ### Architecture and Technologies
