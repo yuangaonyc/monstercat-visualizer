@@ -7,7 +7,7 @@ const init = (context, canvasWidth, canvasHeight, fps) => {
   audio.autoplay = true;
   audio.onended = () => {
     window.starVelocity = 10;
-    window.trackID = trackID === 3 ? 0 : trackID + 1;
+    window.trackID = trackID === 4 ? 0 : trackID + 1;
     window.resetAnalyser();
   };
 
