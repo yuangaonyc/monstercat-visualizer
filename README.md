@@ -2,5 +2,5 @@
 
 [Play here](monstercat-visual.me/)
 
-![main](./bin/assets/main.png)
-![main](./bin/assets/main2.png)
+![main](/bin/assets/images/screenshot.png)
+![main](/bin/assets/images/screenshot2.png)
