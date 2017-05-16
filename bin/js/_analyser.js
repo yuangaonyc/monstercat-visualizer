@@ -25,7 +25,7 @@ const init = (context, canvasWidth, canvasHeight, fps) => {
     front.style.backgroundColor = window.themes[window.trackID];
     document.querySelector('#album_art').appendChild(front);
   const albumArtFront = new Image();
-    albumArtFront.src = '/bin/assets/images/monstercat.png';
+    albumArtFront.src = './assets/images/monstercat.png';
     document.querySelector('.front').appendChild(albumArtFront);
 
   // init back album art

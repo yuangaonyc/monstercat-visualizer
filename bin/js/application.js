@@ -21,11 +21,11 @@ window.themes = [
   'rgba(229, 206, 6, 1)',
 ];
 window.albumArts = [
-  '/bin/assets/images/marshmello.jpg',
-  '/bin/assets/images/hellberg.jpg',
-  '/bin/assets/images/volant.jpg',
-  '/bin/assets/images/nanobii.png',
-  '/bin/assets/images/pegboard-nerds.jpg',
+  './assets/images/marshmello.jpg',
+  './assets/images/hellberg.jpg',
+  './assets/images/volant.jpg',
+  './assets/images/nanobii.png',
+  './assets/images/pegboard-nerds.jpg',
 ];
 window.artists = [
   'marshmello',
@@ -46,8 +46,8 @@ window.songs = [
 const cloudCount = 20;
 const maxXVelocity = 0.5;
 const maxYVelocity = 0.1;
-const canvasWidth = 1440;
-const canvasHeight = 900;
+const canvasWidth = $(window).width();
+const canvasHeight = $(window).height();
 const minCloudHeight = 300;
 const maxCloudHeight = 600;
 const fps = 30;

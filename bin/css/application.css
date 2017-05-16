@@ -7,14 +7,14 @@ body {
 font-family: 'Gotham Pro Bold';
 font-style: normal;
 font-weight: normal;
-src: url('/bin/assets/fonts/GothaProBol.woff') format('woff');
+src: url('../assets/fonts/GothaProBol.woff') format('woff');
 }
 
 @font-face {
 font-family: 'Gotham Pro';
 font-style: normal;
 font-weight: normal;
-src: url('/bin/assets/fonts/GothamPro.woff') format('woff');
+src: url('../assets/fonts/GothamPro.woff') format('woff');
 }
 
 #mp3_player {
