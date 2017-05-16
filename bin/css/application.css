@@ -53,6 +53,7 @@ canvas {
 	backface-visibility: hidden;
 	transition: transform .5s linear 0s;
 }
+
 #album_art > .back{
 	position:absolute;
 	transform: perspective( 600px ) rotateY( 180deg );
