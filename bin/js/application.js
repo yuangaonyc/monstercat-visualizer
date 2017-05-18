@@ -70,11 +70,11 @@ document.querySelector('body').onmousemove = () => {
   clearTimeout(hide);
   document.querySelector('#arrow_left').style.display = 'inline';
   document.querySelector('#arrow_right').style.display = 'inline';
-  document.querySelector('.links').style.display = 'inline';
+  document.querySelector('#links').style.display = 'inline';
   hide = setTimeout(() => {
     document.querySelector('#arrow_left').style.display = 'none';
     document.querySelector('#arrow_right').style.display = 'none';
-    document.querySelector('.links').style.display = 'none';
+    document.querySelector('#links').style.display = 'none';
   }, 3000);
 };
 
@@ -125,5 +125,18 @@ document.querySelector('#arrow_left').onclick = () => {
     window.starVelocity = -10;
     window.trackID = trackID === 0 ? 4 : trackID - 1;
     resetAnalyser();
+  }
+};
+
+// keyboard control
+document.body.onkeydown = (e) => {
+  if(e.keyCode == 37){
+    $('#arrow_left').click();
+  }
+  if(e.keyCode == 39){
+    $('#arrow_right').click();
+  }
+  if(e.keyCode == 32){
+    $('#album_art').click();
   }
 };

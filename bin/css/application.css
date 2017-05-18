@@ -138,10 +138,11 @@ canvas {
   right: 0px;
 }
 
-.links {
+#links {
+  display: none;
   position: absolute;
   top: 100px;
-  right: 100px;
+  left: 80px;
   z-index: 2;
 }
 
