@@ -64,6 +64,20 @@ document.querySelector('#album_art').style.cssText = `top: ${$(window).height() 
 document.querySelector('#arrow_left').style.cssText = `top: ${$(window).height() / 2 + 52}px;`;
 document.querySelector('#arrow_right').style.cssText = `top: ${$(window).height() / 2 + 52}px;`;
 
+// hide skip arrows and links
+let hide;
+document.querySelector('body').onmousemove = () => {
+  clearTimeout(hide);
+  document.querySelector('#arrow_left').style.display = 'inline';
+  document.querySelector('#arrow_right').style.display = 'inline';
+  document.querySelector('.links').style.display = 'inline';
+  hide = setTimeout(() => {
+    document.querySelector('#arrow_left').style.display = 'none';
+    document.querySelector('#arrow_right').style.display = 'none';
+    document.querySelector('.links').style.display = 'none';
+  }, 3000);
+};
+
 // initiate canvases
 const cloudCanvas = document.querySelector('#clouds');
   cloudCanvas.width = canvasWidth;

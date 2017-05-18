@@ -76,18 +76,6 @@ const init = (context, canvasWidth, canvasHeight, fps) => {
     document.querySelector('#info').style.maxWidth = '100%';
   }, 100);
 
-  // hide skip arrows
-  let hide;
-  document.querySelector('body').onmousemove = () => {
-    clearTimeout(hide);
-    document.querySelector('#arrow_left').style.display = 'inline';
-    document.querySelector('#arrow_right').style.display = 'inline';
-    hide = setTimeout(() => {
-      document.querySelector('#arrow_left').style.display = 'none';
-      document.querySelector('#arrow_right').style.display = 'none';
-    }, 3000);
-  };
-
   // analyser init animation
   let x = 10;
   context.fillStyle = window.themes[window.trackID];
