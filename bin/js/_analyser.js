@@ -63,6 +63,7 @@ const init = (context, canvasWidth, canvasHeight, fps) => {
   // info init animation
   const info = document.createElement('div');
     info.id = 'info';
+    info.style.cssText = `top: ${$(window).height() / 2 + 30}px;`;
     document.querySelector('#mp3_player > div').appendChild(info);
   const artist = document.createElement('p');
     artist.innerHTML = window.artists[window.trackID];

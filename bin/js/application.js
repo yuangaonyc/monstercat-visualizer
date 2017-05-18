@@ -59,6 +59,11 @@ const maxRadius = 2;
 const stars = [];
 window.starVelocity = 0;
 
+// css
+document.querySelector('#album_art').style.cssText = `top: ${$(window).height() / 2 + 30}px;`;
+document.querySelector('#arrow_left').style.cssText = `top: ${$(window).height() / 2 + 52}px;`;
+document.querySelector('#arrow_right').style.cssText = `top: ${$(window).height() / 2 + 52}px;`;
+
 // initiate canvases
 const cloudCanvas = document.querySelector('#clouds');
   cloudCanvas.width = canvasWidth;
