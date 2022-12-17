@@ -2,6 +2,7 @@ import cloudInit from './_clouds';
 import starInit from './_stars';
 import analyserInit from './_analyser';
 import { removeNode } from './_util';
+ const fileElement = document.getElementById("owo")
 
 // play list
 window.trackID = 2;
@@ -41,6 +42,35 @@ window.songs = [
   'rainbow road',
   'disconnected',
 ];
+let handleChanges = ({target}) => {
+ console.log(target)
+  let file = target.files[0]
+  const urlObj = URL.createObjectURL(target.files[0]);
+  let albumArtists = "Unknown Artists"
+  let SongsName = "Unknown Song Name"
+  window.sounds.push(urlObj)
+  console.log(urlObj)
+  jsmediatags.read(file, {
+  onSuccess: function(tag) {
+    console.log(tag.tags)
+    let tags = tag.tags
+    albumArtists = tags.artist || "Unknown"
+    SongsName = tags.title || "Failed to Read Info"
+     var imageBlob = new Blob([new Uint8Array(tags.picture.data)], { type: tags.picture.format });
+      var imageUrl = URL.createObjectURL(imageBlob);
+  window.artists.push(albumArtists) // Artists
+  window.albumArts.push(imageUrl) // Album Art
+  window.songs.push(SongsName) // Song name
+  },
+  onError: function(error) {
+    console.log(':(', error.type, error.info);
+  window.artists.push("Error")
+  }
+});
+  
+  
+}
+fileElement.addEventListener("change", handleChanges);
 
 // clouds configuration
 const cloudCount = 20;
@@ -50,7 +80,7 @@ const canvasWidth = $(window).width();
 const canvasHeight = $(window).height();
 const minCloudHeight = 300;
 const maxCloudHeight = 600;
-const fps = 30;
+const fps = 60;
 const clouds = [];
 
 // stars configuration
@@ -115,7 +145,7 @@ document.querySelector('#arrow_right').onclick = () => {
   if (skippingEnabled) {
     window.skippingEnabled = false;
     window.starVelocity = 10;
-    window.trackID = trackID === 4 ? 0 : trackID + 1;
+    window.trackID = trackID === window.sounds.length ? 0 : trackID + 1;
     resetAnalyser();
   }
 };
@@ -123,7 +153,7 @@ document.querySelector('#arrow_left').onclick = () => {
   if (skippingEnabled) {
     window.skippingEnabled = false;
     window.starVelocity = -10;
-    window.trackID = trackID === 0 ? 4 : trackID - 1;
+    window.trackID = trackID === 0 ? window.sounds.length : trackID - 1;
     resetAnalyser();
   }
 };
