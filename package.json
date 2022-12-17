@@ -22,7 +22,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "webpack",
-    "start": "node server.js",
+    "start": "npm run webpack && node server.js",
     "webpack": "webpack"
   },
   "repository": {

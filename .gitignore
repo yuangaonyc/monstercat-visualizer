@@ -1,4 +1,8 @@
-.DS_Store
-node_modules/
-bundle.js
-bundle.js.map
+node_modules
+package-lock.json
+.config
+.replit
+replit.nix
+.config
+docs
+*.DS_Store
