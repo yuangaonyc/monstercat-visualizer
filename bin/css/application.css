@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+font-family: 'Gotham Pro Bold';
+font-style: normal;
+font-weight: normal;
+src: url('../assets/fonts/GothaProBol.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Gotham Pro';
+font-style: normal;
+font-weight: normal;
+src: url('../assets/fonts/GothamPro.woff') format('woff');
+}
+
+#mp3_player {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+canvas {
+  position: absolute;
+}
+
+#stars {
+  z-index: 1;
+}
+
+#analyser {
+  z-index: 2;
+}
+
+#album_art {
+  position: absolute;
+  border-radius: 2px;
+  left: 95px;
+  width: 144px;
+  height: 144px;
+  z-index: 2;
+}
+
+#album_art > .front{
+	position:absolute;
+	transform: perspective( 600px ) rotateY( 180deg );
+	backface-visibility: hidden;
+	transition: transform .5s linear 0s;
+}
+
+#album_art > .back{
+	position:absolute;
+	transform: perspective( 600px ) rotateY( 180deg );
+	backface-visibility: hidden;
+	transition: transform .5s linear 0s;
+}
+
+#album_art .front {
+  width: 144px;
+  height: 144px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#album_art .front img {
+  width: 100px;
+  height: 100px;
+}
+
+#album_art .back img {
+  width: 144px;
+  height: 144px;
+}
+
+#album_art:hover {
+  cursor: pointer;
+}
+
+#info {
+  position: absolute;
+  left: 265px;
+  z-index: 2;
+  color: white;
+  height: 144px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#info p:first-child {
+  font-family: 'Gotham Pro Bold';
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 60px;
+  color: white;
+}
+
+#info p:last-child {
+  font-family: 'Gotham Pro';
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 40px;
+  color: white;
+}
+
+#info {
+  width: auto;
+  max-width: 0%;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: max-width 1s linear;
+}
+
+.arrow {
+  position: absolute;
+  display: none;
+  z-index: 2;
+  height: 100px;
+  width: 100px;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+#arrow_left {
+  left: 0px;
+}
+
+#arrow_right {
+  right: 0px;
+}
+
+#links {
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 80px;
+  z-index: 2;
+}
+
+i {
+  font-size: 20px;
+  color: white;
+  margin-left: 20px;
+}
+
+i:hover {
+  cursor: pointer;
+}
